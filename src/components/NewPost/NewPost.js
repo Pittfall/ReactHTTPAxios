@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import './NewPost.css';
+import { AddNewPost } from '../../Http/API/API';
 
 class NewPost extends Component {
     state = {
@@ -17,7 +17,7 @@ class NewPost extends Component {
             author: this.state.author
         }
 
-        axios.post('posts', data)
+        AddNewPost(data)
             .then(response => {
                 console.log(response);
             });

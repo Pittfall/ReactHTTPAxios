@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 import './FullPost.css';
+import { GetPost, DeletePost } from '../../Http/API/API';
 
 class FullPost extends Component {
     state = {
@@ -18,14 +18,14 @@ class FullPost extends Component {
         
         }
 
-        axios.get('posts/' + this.props.postId)
+        GetPost(this.props.postId)
             .then(response => {
                 this.setState({selectedPost : response.data});
             });
     }
 
     deletePostHandler = () => {
-        axios.delete('posts/' + this.props.postId)
+        DeletePost(this.props.postId)
             .then(response => {
                 console.log(response);
             });
