@@ -4,6 +4,7 @@ import Post from '../../components/Post/Post';
 import FullPost from '../../components/FullPost/FullPost';
 import NewPost from '../../components/NewPost/NewPost';
 import './Blog.css';
+import NavigationItems from '../../components/Navigation/NavigationItems/NavigationItems'
 
 import { GetPosts } from '../../Http/API/API';
 
@@ -48,6 +49,7 @@ class Blog extends Component {
 
         return (
             <div>
+                <NavigationItems />
                 <section className="Posts">
                     {posts}
                 </section>
