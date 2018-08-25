@@ -8,17 +8,8 @@ class FullPost extends Component {
         selectedPost: null
     }
 
-    componentDidUpdate (prevProps) {
-        if (!this.props.postId) {
-            return;
-        }
-
-        if (prevProps.postId === this.props.postId) {
-            return;
-        
-        }
-
-        GetPost(this.props.postId)
+    componentDidMount (prevProps) {
+        GetPost(this.props.match.params.postId)
             .then(response => {
                 this.setState({selectedPost : response.data});
             });
@@ -34,7 +25,7 @@ class FullPost extends Component {
     render () {
         let post = <p style={{textAlign: 'center'}}>Please select a Post!</p>;
 
-        if (this.props.postId) {
+        if (this.props.match.params.postId) {
             post = <p style={{textAlign: 'center'}}>Loading...</p>;
         }
 

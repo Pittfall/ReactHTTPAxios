@@ -11,12 +11,14 @@
   margin: 20px;
 }
 
-.Navigation Link {
+.Navigation a {
   text-decoration: none;
   color: black;
 }
 
-.Navigation Link:hover,
-.Navigation Link:active {
+.Navigation a:hover,
+.Navigation a:active,
+.Navigation a.my-active {
   color: #fa923f;
+  text-decoration: underline;
 }

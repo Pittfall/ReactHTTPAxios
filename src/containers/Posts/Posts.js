@@ -29,12 +29,22 @@ class Posts extends Component {
       });
   }
 
+  postClickHandler = (id) => {
+    this.props.history.push({pathname: '/' + id})
+  }
+
   render () {
     let posts = <p style={{textAlign: 'center'}}>Something went wrong</p>
     
     if (!this.state.error) {
         posts = this.state.posts.map(post => {
-            return <Post key={post.id} title={post.title} author={post.author}  />
+            return (
+                <Post 
+                  key={post.id} 
+                  title={post.title} 
+                  author={post.author} 
+                  clicked={() => this.postClickHandler(post.id)} />
+            );
         });
     }
 

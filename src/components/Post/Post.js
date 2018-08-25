@@ -1,9 +1,10 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import './Post.css';
 
 const post = (props) => (
-    <article className="Post">
+    <article className="Post" onClick={props.clicked}>
         <h1>{props.title}</h1>
         <div className="Info">
             <div className="Author">{props.author}</div>
@@ -11,4 +12,5 @@ const post = (props) => (
     </article>
 );
 
-export default post;
+// This adds the routing properties to any component.
+export default withRouter(post);

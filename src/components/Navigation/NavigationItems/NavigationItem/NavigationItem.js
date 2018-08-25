@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// Link can be used rather than NavLink but NavLink adds an 'active' css class.
+import { NavLink } from 'react-router-dom';
 
 const navigationItem = (props) => (
   <li>
-    <Link to={props.link}>{props.children}</Link>
+    {/* By default, the active class name is 'active'  */}
+    <NavLink activeClassName="my-active" exact to={props.link}>{props.children}</NavLink>
   </li>
 );
 
