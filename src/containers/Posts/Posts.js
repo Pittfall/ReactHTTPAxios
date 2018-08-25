@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import './Posts.css';
 import Post from '../../components/Post/Post';
+import FullPost from '../FullPost/FullPost';
 import { GetPosts } from '../../Http/API/API';
 
 class Posts extends Component {
@@ -30,7 +32,7 @@ class Posts extends Component {
   }
 
   postClickHandler = (id) => {
-    this.props.history.push({pathname: '/' + id})
+    this.props.history.push({pathname: '/Posts/' + id})
   }
 
   render () {
@@ -49,9 +51,12 @@ class Posts extends Component {
     }
 
     return (
-      <section className="Posts">
-        {posts}
-      </section>
+      <div>
+        <section className="Posts">
+          {posts}
+        </section>
+        <Route path={this.props.match.url + "/:postId" } exact component={FullPost} />
+      </div>
     );
   }
 }

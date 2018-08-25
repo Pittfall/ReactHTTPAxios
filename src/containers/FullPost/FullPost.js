@@ -8,15 +8,26 @@ class FullPost extends Component {
         selectedPost: null
     }
 
-    componentDidMount (prevProps) {
-        GetPost(this.props.match.params.postId)
-            .then(response => {
-                this.setState({selectedPost : response.data});
-            });
+    componentDidMount () {
+      this.loadData();
+    }
+
+    componentDidUpdate () {
+      this.loadData();
+    }
+
+    loadData = () => {
+      if (!this.props.match.params.postId) { return; }
+      if (this.state.selectedPost && this.state.selectedPost.id === +this.props.match.params.postId) { return; }
+
+      GetPost(this.props.match.params.postId)
+        .then(response => {
+            this.setState({selectedPost : response.data});
+        });
     }
 
     deletePostHandler = () => {
-        DeletePost(this.props.postId)
+        DeletePost(this.props.match.params.postId)
             .then(response => {
                 console.log(response);
             });

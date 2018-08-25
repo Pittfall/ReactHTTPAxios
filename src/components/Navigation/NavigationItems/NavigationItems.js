@@ -6,7 +6,7 @@ const navigationItems = () => (
   <header>
     <nav className="Navigation">
       <ul>
-        <NavigationItem link="/">Home</NavigationItem>
+        <NavigationItem link="/Posts">Posts</NavigationItem>
         <NavigationItem link="/new-post">New Post</NavigationItem>
       </ul>
     </nav>
